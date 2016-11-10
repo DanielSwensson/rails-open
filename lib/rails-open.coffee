@@ -1,5 +1,9 @@
 {CompositeDisposable} = require 'atom'
 
+Routes = require './routes'
+
+routes = new Routes()
+
 module.exports = RailsOpen =
   subscriptions: null
 
@@ -16,36 +20,25 @@ module.exports = RailsOpen =
 
   openIndex: ->
     if editor = atom.workspace.getActiveTextEditor()
-      getControllerName editor
-      .then (controllerName) ->
-        if uri = getURI controllerName
-          open(uri)
-      .catch (err) ->
-        atom.notifications.addError(err.reason)
+      if controllerName = getControllerName editor
+        routes.getUri controllerName
+        .then (uri) ->
+          open uri
+        .catch (err) ->
+          atom.notifications.addError(err.reason)
 
-getURI = (controllerName) ->
-  try
-    exec = require("child_process").execSync
-    cmd = "CONTROLLER=#{controllerName} bundle exec rake routes | grep '#index'"
-    routes = exec(
-      cmd,
-      cwd: atom.project.getPaths()[0],
-      encoding: 'utf8'
-    )
-    routes.trim().split(/\s+/)[2].replace('(.:format)', '')
-  catch err
-    atom.notifications.addError("Cant find route for #{controllerName}")
-    null
-
+# --- end of module ---
 open = (path) ->
   opn = require 'opn'
   opn 'http://localhost:3000/' + path
 
 getControllerName = (editor) ->
-  return new Promise (resolve, reject) ->
     fullPath = editor.getPath()
-    [_,relativePath] = atom.project.relativizePath(fullPath)
-    if relativePath.startsWith 'app/controllers/'
-      resolve relativePath.replace('app/controllers/', '').replace('_controller.rb', '')
+    if project = atom.project
+      [_,relativePath] = project.relativizePath(fullPath)
+      if !relativePath.startsWith 'app/controllers/'
+        atom.notifications.addError("#{relativePath} is not a rails controller")
+        return
+      relativePath.replace('app/controllers/', '').replace('_controller.rb', '')
     else
-      reject reason: "#{relativePath} is not a rails controller"
+      atom.notifications.addError("Can't find atom project")
