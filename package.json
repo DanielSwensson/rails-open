@@ -2,8 +2,13 @@
   "name": "rails-open",
   "main": "./lib/rails-open",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Open rails controller in browser",
   "keywords": [
+    "rails",
+    "controller",
+    "open",
+    "browser",
+    "ruby"
   ],
   "activationCommands": {
     "atom-workspace": "rails-open:open-index"
@@ -14,6 +19,6 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
-    "opn": "*"
+    "opn": ">=4.0.2"
   }
 }
