@@ -7,6 +7,13 @@ routes = new Routes()
 module.exports = RailsOpen =
   subscriptions: null
 
+  config:
+    URL:
+      title: 'Target URL'
+      description: 'Opens the URL in default browser'
+      type: 'string'
+      default: 'http://localhost:3000'
+
   activate: ->
 
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
@@ -23,14 +30,14 @@ module.exports = RailsOpen =
       if controllerName = getControllerName editor
         routes.getUri controllerName
         .then (uri) ->
-          open uri
+          open "/#{uri}"
         .catch (err) ->
           atom.notifications.addError(err.reason)
 
 # --- end of module ---
 open = (path) ->
   opn = require 'opn'
-  opn 'http://localhost:3000/' + path
+  opn atom.config.get('rails-open.URL') + path
 
 getControllerName = (editor) ->
     fullPath = editor.getPath()
