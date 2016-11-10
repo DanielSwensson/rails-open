@@ -2,7 +2,7 @@
   "name": "rails-open",
   "main": "./lib/rails-open",
   "version": "0.3.1",
-  "description": "Open rails controller in browser",
+  "description": "Open rails current controller#index in browser",
   "keywords": [
     "rails",
     "controller",
