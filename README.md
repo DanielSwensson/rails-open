@@ -7,7 +7,7 @@ the index action of a controller in your default web browser.
 
 **Usage:**  
 * Keymap: **ctrl** + **alt** + **o**
-* The current file must end with *_controller.rb* and be in the *./app/controllers* directory of your project
+* The current file must end with *_controller.rb* and be within the *./app/controllers* directory of your project
 
 **Installation:**
 `apm install rails-open`
