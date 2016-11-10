@@ -1,0 +1,19 @@
+{
+  "name": "rails-open",
+  "main": "./lib/rails-open",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "rails-open:open-index"
+  },
+  "repository": "https://github.com/DanielSwensson/rails-open",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "opn": "*"
+  }
+}
