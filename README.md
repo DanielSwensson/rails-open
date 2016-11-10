@@ -2,7 +2,7 @@
 
 **atom.io package**
 ***
-Rails Open is an Atom package that allows you to quickly find and open
+Rails Open is an Atom package that allows you to quickly open
 the index action of a controller in your default web browser.
 
 **Usage:**  
