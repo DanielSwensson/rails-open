@@ -1,7 +1,7 @@
 {
   "name": "rails-open",
   "main": "./lib/rails-open",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Opens current rails controller#index path in browser",
   "keywords": [
     "rails",
