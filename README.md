@@ -13,3 +13,5 @@ the index action of a controller in your default web browser.
 `apm install rails-open`
 
 _Only tested on mac OS X_
+
+![nov-13-2016 20-55-05](https://cloud.githubusercontent.com/assets/1590589/20248405/d6374bc2-a9e3-11e6-9f0c-d06c2087a9d5.gif)
