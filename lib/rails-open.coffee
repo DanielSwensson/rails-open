@@ -10,9 +10,14 @@ module.exports = RailsOpen =
   config:
     URL:
       title: 'Target URL'
-      description: 'Opens the URL in default browser'
+      description: 'Opens URL in default browser.'
       type: 'string'
       default: 'http://localhost:3000'
+    command:
+      title: 'Command'
+      type: 'string'
+      default: 'rake'
+      description: 'Path to your `rake` command.'
 
   activate: ->
 
