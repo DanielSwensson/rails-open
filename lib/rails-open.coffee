@@ -35,7 +35,7 @@ module.exports = RailsOpen =
       if controllerName = getControllerName editor
         routes.getUri controllerName
         .then (uri) ->
-          open "/#{uri}"
+          open "#{uri}"
         .catch (err) ->
           atom.notifications.addError(err.reason)
 
